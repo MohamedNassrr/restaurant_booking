@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:restaurant_booking_app/bloc_observer.dart';
 import 'package:restaurant_booking_app/layout/home_layout.dart';
+import 'package:restaurant_booking_app/shared/style/theme.dart';
 
 void main() {
   BlocOverrides.runZoned(
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: lightTheme,
       home: HomeLayout(),
     );
   }
