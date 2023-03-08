@@ -180,10 +180,18 @@ PreferredSizeWidget defaultAppBar({
 Widget defaultTextBottom({
   required function,
   required String text,
+  Color textColor = Colors.blue,
+  double textSize = 14.0,
 }) =>
     TextButton(
       onPressed: function,
-      child: Text(text.toUpperCase()),
+      child: Text(
+          text.toUpperCase(),
+        style: TextStyle(
+          color: textColor,
+          fontSize: textSize,
+        ),
+      ),
     );
 
 // void showToast({
