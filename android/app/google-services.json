@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "492187248552",
+    "project_id": "restaurant-booking-56b61",
+    "storage_bucket": "restaurant-booking-56b61.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:492187248552:android:3df5aaa230757b7193df9d",
+        "android_client_info": {
+          "package_name": "com.example.restaurant_booking_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "492187248552-5e7icu8ksup2uac8ic2a63blkqmqlqe2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYjQ6BnpGQw4Ewz5mgG635wDykGDWsE88"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "492187248552-5e7icu8ksup2uac8ic2a63blkqmqlqe2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
