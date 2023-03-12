@@ -182,11 +182,12 @@ Widget defaultTextBottom({
   required String text,
   Color textColor = Colors.blue,
   double textSize = 14.0,
+  bool isUpperCase = true,
 }) =>
     TextButton(
       onPressed: function,
       child: Text(
-          text.toUpperCase(),
+        isUpperCase ? text.toUpperCase() : text,
         style: TextStyle(
           color: textColor,
           fontSize: textSize,

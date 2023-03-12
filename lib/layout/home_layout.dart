@@ -13,8 +13,8 @@ class HomeLayout extends StatelessWidget {
         var cubit = HomeCubit.get(context);
         return Scaffold(
           appBar: AppBar(),
+          body: Center(child: Text('homeLayout')),
           bottomNavigationBar: BottomNavigationBar(
-
               items: const []
           ),
         );
