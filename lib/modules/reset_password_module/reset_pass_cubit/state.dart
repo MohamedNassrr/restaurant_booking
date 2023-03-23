@@ -4,6 +4,8 @@ class ResetPasswordInitialState extends ResetPasswordState{}
 
 class ResetPasswordSuccessState extends ResetPasswordState{}
 
+class ResetPasswordSendSuccessState extends ResetPasswordState{}
+
 class ResetPasswordErrorState extends ResetPasswordState{
   final String error;
 

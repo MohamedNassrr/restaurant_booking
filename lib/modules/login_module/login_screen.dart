@@ -1,12 +1,13 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:restaurant_booking_app/modules/choose_module/choose_screen.dart';
+import 'package:restaurant_booking_app/layout/home_layout.dart';
 import 'package:restaurant_booking_app/modules/login_module/login_cubit/cubit.dart';
 import 'package:restaurant_booking_app/modules/login_module/login_cubit/states.dart';
 import 'package:restaurant_booking_app/modules/register_module/register_screen.dart';
 import 'package:restaurant_booking_app/modules/reset_password_module/reset_password_screen.dart';
 import 'package:restaurant_booking_app/shared/components/components.dart';
+import 'package:restaurant_booking_app/shared/network/local/cache_helper.dart';
 
 class LoginScreen extends StatelessWidget {
 
@@ -20,8 +21,18 @@ class LoginScreen extends StatelessWidget {
       create: (context) => LoginCubit(),
       child: BlocConsumer<LoginCubit, LoginStates>(
         listener: (context, state) {
+          if(state is LoginErrorState){
+            showToast(
+              text: state.error,
+              state: ToastStates.ERROR,
+            );
+          }
           if(state is LoginSuccessState){
-            navigateAndFinish(context, ChooseScreen());
+            CacheHelper.saveData(
+                key: 'uId',
+                value: state.uid,
+            );
+            navigateAndFinish(context, HomeLayout());
           }
         },
         builder: (context, state) {

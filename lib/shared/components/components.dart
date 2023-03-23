@@ -1,5 +1,6 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:restaurant_booking_app/shared/style/colors.dart';
 import 'package:restaurant_booking_app/shared/style/icon_broken.dart';
 
@@ -195,19 +196,19 @@ Widget defaultTextBottom({
       ),
     );
 
-// void showToast({
-//   required String text,
-//   required ToastStates state,
-// }) {
-//   Fluttertoast.showToast(
-//       msg: text,
-//       toastLength: Toast.LENGTH_LONG,
-//       gravity: ToastGravity.BOTTOM,
-//       timeInSecForIosWeb: 5,
-//       backgroundColor: Colors.grey,
-//       textColor: Colors.white,
-//       fontSize: 16.0);
-// }
+void showToast({
+  required String text,
+  required ToastStates state,
+}) {
+  Fluttertoast.showToast(
+      msg: text,
+      toastLength: Toast.LENGTH_LONG,
+      gravity: ToastGravity.BOTTOM,
+      timeInSecForIosWeb: 5,
+      backgroundColor: Colors.grey,
+      textColor: Colors.white,
+      fontSize: 16.0);
+}
 
 enum ToastStates { SUCCESS, ERROR, WARNING }
 
@@ -227,7 +228,6 @@ Color? chooseColor(ToastStates state) {
   }
   return color;
 }
-
 Widget buildListProduct(model, context, {bool isOldPrice = true}) => Padding(
   padding: const EdgeInsets.all(20.0),
   child: Container(

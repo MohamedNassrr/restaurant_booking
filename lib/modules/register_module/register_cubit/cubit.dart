@@ -10,6 +10,7 @@ class RegisterCubit extends Cubit<RegisterStates>{
   RegisterCubit() : super(RegisterInitialState());
 
   static RegisterCubit get(context) => BlocProvider.of(context);
+
   void userRegister({
   required String name,
   required String email,
@@ -27,6 +28,7 @@ class RegisterCubit extends Cubit<RegisterStates>{
           email: email,
           uId: value.user!.uid,
           name: name,
+
       );
     }).catchError((error){
       emit(RegisterErrorState(error.toString()));
@@ -39,7 +41,8 @@ class RegisterCubit extends Cubit<RegisterStates>{
   required String email,
   required String uId,
   required String name,
-}){
+
+  }){
     UserModel model = UserModel(
       name: name,
       email: email,
@@ -58,7 +61,6 @@ class RegisterCubit extends Cubit<RegisterStates>{
   }
 
 
-
   IconData suffix = Icons.visibility_outlined;
   bool isPassword = true;
 
@@ -67,4 +69,6 @@ class RegisterCubit extends Cubit<RegisterStates>{
     suffix = isPassword ? Icons.visibility_outlined : Icons.visibility_off_outlined;
     emit(ChangePasswordVisibilityState());
   }
+
 }
+

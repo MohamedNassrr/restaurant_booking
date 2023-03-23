@@ -2,8 +2,10 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:restaurant_booking_app/layout/home_cubit/state.dart';
-import 'package:restaurant_booking_app/modules/login_module/login_screen.dart';
-import 'package:restaurant_booking_app/modules/register_module/register_screen.dart';
+import 'package:restaurant_booking_app/modules/near_location_module/near_location.dart';
+import 'package:restaurant_booking_app/modules/profile_module/profile_screen.dart';
+import 'package:restaurant_booking_app/modules/restaurants_module/restaurant_screen.dart';
+import 'package:restaurant_booking_app/modules/visited_place_module/visited_place.dart';
 
 class HomeCubit extends Cubit<HomeStates>{
   HomeCubit() : super(HomeInitialState());
@@ -12,7 +14,12 @@ class HomeCubit extends Cubit<HomeStates>{
 
   int currentIndex = 0;
 
-  List<Widget> screens = [];
+  List<Widget> screens = [
+    RestaurantScreen(),
+    NearLocationScreen(),
+    VisitedPlaceScreen(),
+    ProfileScreen(),
+  ];
 
   void changeBottomNavBar(int index){
     currentIndex = index;

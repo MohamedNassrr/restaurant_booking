@@ -2,6 +2,7 @@ import 'package:conditional_builder_null_safety/conditional_builder_null_safety.
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:restaurant_booking_app/layout/home_layout.dart';
+import 'package:restaurant_booking_app/model/user_model.dart';
 import 'package:restaurant_booking_app/modules/login_module/login_screen.dart';
 import 'package:restaurant_booking_app/modules/register_module/register_cubit/cubit.dart';
 import 'package:restaurant_booking_app/modules/register_module/register_cubit/state.dart';
@@ -16,6 +17,7 @@ class RegisterScreen extends StatelessWidget {
   var userNameController = TextEditingController();
   var phoneController = TextEditingController();
 
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -27,6 +29,7 @@ class RegisterScreen extends StatelessWidget {
           }
         },
         builder: (context, state){
+          var cubit = RegisterCubit.get(context);
           return Scaffold(
             body: Center(
               child: Padding(
@@ -34,7 +37,7 @@ class RegisterScreen extends StatelessWidget {
                 child: SingleChildScrollView(
                   child: Form(
                     key: formKey,
-                    child: Column(
+                    child:Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
@@ -78,22 +81,22 @@ class RegisterScreen extends StatelessWidget {
                           children: [
                             Expanded(
                               child: defaultFormField(
-                                  controller: passwordController,
-                                  type: TextInputType.visiblePassword,
-                                  isPassword: RegisterCubit.get(context).isPassword,
-                                  validate: (value) {
-                                    if (value.isEmpty) {
-                                      return 'Password is too short';
-                                    }
+                                controller: passwordController,
+                                type: TextInputType.visiblePassword,
+                                isPassword: RegisterCubit.get(context).isPassword,
+                                validate: (value) {
+                                  if (value.isEmpty) {
+                                    return 'Password is too short';
+                                  }
 
-                                  },
-                                  label: 'Password',
-                                  prefix: Icons.lock_outline,
-                                  suffix: RegisterCubit.get(context).suffix,
-                                  suffixPressed: () {
-                                    RegisterCubit.get(context).changePasswordVisibility();
-                                  },
-                                ),
+                                },
+                                label: 'Password',
+                                prefix: Icons.lock_outline,
+                                suffix: RegisterCubit.get(context).suffix,
+                                suffixPressed: () {
+                                  RegisterCubit.get(context).changePasswordVisibility();
+                                },
+                              ),
                             ),
                             10.pw,
                             Expanded(
@@ -120,15 +123,15 @@ class RegisterScreen extends StatelessWidget {
                         15.ph,
                         //-------- start phone form_field
                         defaultFormField(
-                            controller: phoneController,
-                            type: TextInputType.phone,
-                            validate: (value) {
-                              if (value.isEmpty) {
-                                return 'phone is wrong';
-                              }
-                            },
-                            label: 'Phone',
-                            prefix: Icons.phone,
+                          controller: phoneController,
+                          type: TextInputType.phone,
+                          validate: (value) {
+                            if (value.isEmpty) {
+                              return 'phone is wrong';
+                            }
+                          },
+                          label: 'Phone',
+                          prefix: Icons.phone,
                         ),
                         //-------- end phone form_field
                         20.ph,
@@ -168,7 +171,7 @@ class RegisterScreen extends StatelessWidget {
                           ],
                         ),
                       ],
-                    ),
+                    )
                   ),
                 ),
               ),

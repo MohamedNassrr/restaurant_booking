@@ -18,6 +18,18 @@ class ResetPasswordScreen extends StatelessWidget {
       child: BlocConsumer<ResetPasswordCubit, ResetPasswordState>(
         listener: (context, state){
           if(state is ResetPasswordSuccessState){
+            showToast(
+                text: 'Reset password successfully send',
+               state: ToastStates.SUCCESS,
+            );
+          }
+          if(state is ResetPasswordErrorState){
+            showToast(
+              text: state.error,
+              state: ToastStates.SUCCESS,
+            );
+          }
+          if(state is ResetPasswordSuccessState){
             navigateTo(context, LoginScreen());
           }
         },
